@@ -17,6 +17,7 @@ var canvas: HTMLCanvasElement;
 var ctx: CanvasRenderingContext2D;
 
 
+
 function setup(){
 	canvas = <HTMLCanvasElement>document.getElementById('cnvs');
     ctx = <CanvasRenderingContext2D>canvas.getContext("2d");
@@ -102,7 +103,7 @@ window.onload = () => {
     setup();
 	
 	step.onclick = function() {
-		game();
+		 setInterval("game()", 10);
 	  };
 	
 }

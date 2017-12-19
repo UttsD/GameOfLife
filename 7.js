@@ -12,6 +12,7 @@ var rows;
 var resolutions = 10;
 var canvas;
 var ctx;
+var timer;
 function setup() {
     canvas = document.getElementById('cnvs');
     ctx = canvas.getContext("2d");
@@ -62,6 +63,7 @@ function game() {
     }
     grid = next;
     draw();
+    
 }
 function countNeighbors(grid, x, y) {
     var sum = 0;
@@ -77,7 +79,12 @@ function countNeighbors(grid, x, y) {
 }
 window.onload = function () {
     setup();
-    step.onclick = function () {
-        game();
+    draw();
+    start.onclick = function () {
+        timer = setInterval("game()", 10);
+    };
+
+    pause.onclick = function () {
+        clearInterval(timer);
     };
 };
